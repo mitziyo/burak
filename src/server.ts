@@ -70,7 +70,6 @@
 // const person: string = "Martin";
 // const count: number = 100;
 
-
 // Architectural pattern: MVC, DI, MVP
 // MVC = Model View Controller, MVP = Model View Presentor
 // DI = Dependency injection
