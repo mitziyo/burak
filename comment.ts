@@ -75,3 +75,4 @@
 // DI = Dependency injection
 // design pattern: Middleware, Decoretor
 
+// CLUSTER => DATABASE => COLLECTION => DOCUMENT
