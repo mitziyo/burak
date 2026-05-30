@@ -1,19 +1,33 @@
+#  TASK N
+
+def palindromeCheck(text):
+    rev_text = text[::-1]
+    return text == rev_text
+print(palindromeCheck("dad"))
+
+
+
+
+
+
+
+
 # TASK M
 
-def getSquareNumbers(arr):
-    getNumber = []
-    for element in arr:
-        result = element*element
-        obj_dict = {
-            "number": element,
-            "square": result
+# def getSquareNumbers(arr):
+#     getNumber = []
+#     for element in arr:
+#         result = element*element
+#         obj_dict = {
+#             "number": element,
+#             "square": result
 
-        }
-        getNumber.append(obj_dict)
-    return getNumber
+#         }
+#         getNumber.append(obj_dict)
+#     return getNumber
 
 
-print(getSquareNumbers([1, 2, 3]))
+# print(getSquareNumbers([1, 2, 3]))
 
 
 # TASK L
