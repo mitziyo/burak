@@ -9,6 +9,14 @@ Project Standarts:
   - Error handling
 
 */
+/**   
+API Turlari 
+  - Traditional Api
+  - Rest Api
+  - GraphQl Api
+
+
+ */
 
 // TASK N
 
