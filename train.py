@@ -1,15 +1,25 @@
+# TASK O
+def calculateSumOfNumbers(arr):
+    total = 0
+
+    for item in arr:
+        if type(item) == int or type(item) == float:
+            total = total + item
+
+    return total
+
+
+result = calculateSumOfNumbers([10, "10", {"son": 10}, True, 35])
+
+print(result)
+
+
 #  TASK N
 
-def palindromeCheck(text):
-    rev_text = text[::-1]
-    return text == rev_text
-print(palindromeCheck("dad"))
-
-
-
-
-
-
+# def palindromeCheck(text):
+#     rev_text = text[::-1]
+#     return text == rev_text
+# print(palindromeCheck("dad"))
 
 
 # TASK M
