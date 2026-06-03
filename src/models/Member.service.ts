@@ -3,6 +3,7 @@ import Errors, { HttpCode, Message } from "../libs/Error";
 import { MemberInput, Member } from "../libs/types/member";
 import MemberModel from "../schema/Member.model";
 import { LoginInput } from "../libs/types/member";
+import * as bcrypt from "bcryptjs";
 class MemberService {
   private readonly memberModel;
   constructor() {
@@ -15,6 +16,10 @@ class MemberService {
       .exec();
     console.log("exist:", exist);
     if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+
+    const salt = await bcrypt.genSalt();
+    input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
+
     try {
       const result = await this.memberModel.create(input);
 
@@ -37,7 +42,11 @@ class MemberService {
       .exec();
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
-    const isMatch = input.memberPassword === member.memberPassword;
+    const isMatch = await bcrypt.compare(
+      input.memberPassword,
+      member.memberPassword,
+    );
+    //const isMatch = input.memberPassword === member.memberPassword;
     // console.log("isMatch:", isMatch);
 
     if (!isMatch) {
@@ -46,8 +55,7 @@ class MemberService {
 
     return await this.memberModel.findById(member._id).exec();
 
-   // console.log("member:", result);
-  
+    // console.log("member:", result);
   }
 }
 
