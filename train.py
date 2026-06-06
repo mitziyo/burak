@@ -1,17 +1,29 @@
+# Task Q
+def hasProperty(obj, propName):
+
+    for key in obj:
+        if key == propName:
+            return True
+
+    return False
+
+
+result = hasProperty({"name": "BMW"}, "name")
+print(result)        
 # TASK P
 
-def objectToArray(obj):
-    ready = []
-    
-    for key, value in obj.items():
-        ready.append([key, value])
+# def objectToArray(obj):
+#     ready = []
+
+#     for key, value in obj.items():
+#         ready.append([key, value])
 
 
-    return ready
+#     return ready
 
 
-result = objectToArray({"a": 10, "b": 20})
-print(result)
+# result = objectToArray({"a": 10, "b": 20})
+# print(result)
 
 
 # TASK O
