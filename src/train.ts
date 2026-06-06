@@ -17,6 +17,11 @@ API Turlari
 
 
  */
+ /**
+  Traditional FD  => SSR (Adminka) => EJS
+  Modern FD       => SPA (USER) => REACT
+  ...
+ */
 
 // TASK N
 
