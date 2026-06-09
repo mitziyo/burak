@@ -1,15 +1,39 @@
+# TASK R
+def calculate(str):
+    brinchi_qadam = str.split()
+    chap_son = brinchi_qadam[0]
+    operatorr = brinchi_qadam[1]
+    ong_son = brinchi_qadam[2]
+
+    chap_son = int(brinchi_qadam[0])
+    ong_son = int(brinchi_qadam[2])
+
+    if operatorr == "+":
+        return chap_son + ong_son
+    elif operatorr == "-":
+        return chap_son - ong_son
+    elif operatorr == "*":
+        return chap_son * ong_son
+    elif operatorr == "/":
+        return chap_son / ong_son
+
+
+result = calculate("1 + 3")
+print(result)
+
+
 # Task Q
-def hasProperty(obj, propName):
+# def hasProperty(obj, propName):
 
-    for key in obj:
-        if key == propName:
-            return True
+#     for key in obj:
+#         if key == propName:
+#             return True
 
-    return False
+#     return False
 
 
-result = hasProperty({"name": "BMW"}, "name")
-print(result)        
+# result = hasProperty({"name": "BMW"}, "name")
+# print(result)
 # TASK P
 
 # def objectToArray(obj):
