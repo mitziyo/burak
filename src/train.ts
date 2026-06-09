@@ -22,8 +22,33 @@ API Turlari
   Modern FD       => SPA (USER) => REACT
   ...
  */
+ /**
+  
+ */
 
-// TASK N
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // TASK N
 
 // function palindromeCheck(str: String) {
 //   const rev_text = str.split("").reverse().join("")
