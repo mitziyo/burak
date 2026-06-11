@@ -1,25 +1,37 @@
-# TASK R
-def calculate(str):
-    brinchi_qadam = str.split()
-    chap_son = brinchi_qadam[0]
-    operatorr = brinchi_qadam[1]
-    ong_son = brinchi_qadam[2]
 
-    chap_son = int(brinchi_qadam[0])
-    ong_son = int(brinchi_qadam[2])
+def missingNumber(num):
+    num.sort()
+    for i, val in enumerate(num):
+        if i != val:
+            return i
+       
+    return len(num)
 
-    if operatorr == "+":
-        return chap_son + ong_son
-    elif operatorr == "-":
-        return chap_son - ong_son
-    elif operatorr == "*":
-        return chap_son * ong_son
-    elif operatorr == "/":
-        return chap_son / ong_son
-
-
-result = calculate("1 + 3")
+result = missingNumber([0, 1, 2])
 print(result)
+
+# TASK R
+# def calculate(str):
+#     brinchi_qadam = str.split()
+#     chap_son = brinchi_qadam[0]
+#     operatorr = brinchi_qadam[1]
+#     ong_son = brinchi_qadam[2]
+
+#     chap_son = int(brinchi_qadam[0])
+#     ong_son = int(brinchi_qadam[2])
+
+#     if operatorr == "+":
+#         return chap_son + ong_son
+#     elif operatorr == "-":
+#         return chap_son - ong_son
+#     elif operatorr == "*":
+#         return chap_son * ong_son
+#     elif operatorr == "/":
+#         return chap_son / ong_son
+
+
+# result = calculate("1 + 3")
+# print(result)
 
 
 # Task Q
