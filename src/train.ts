@@ -17,38 +17,26 @@ API Turlari
 
 
  */
- /**
+/** frontend developent
   Traditional FD  => SSR (Adminka) => EJS
   Modern FD       => SPA (USER) => REACT
   ...
  */
- /**
+
+/** COOKIES
+ request join
+ self destroy
   
  */
 
+ /** Validations
+  * Frontend validation
+  * pipe validation
+  * backend validation
+  * database validation
+ */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // TASK N
+// TASK N
 
 // function palindromeCheck(str: String) {
 //   const rev_text = str.split("").reverse().join("")
