@@ -2,6 +2,7 @@ import express from "express";
 const routerAdmin = express.Router(); // router methodini chaqirb olamz
 import restaurantController from "./controllers/restaurant.controller";
 import productController from "./controllers/product.controller";
+import makeUploader from "./libs/utils/uploader";
 
 // router instance dan foydalanib get post methodini amalga oshramz
 /** Restaurant*/
@@ -12,7 +13,11 @@ routerAdmin
 
 routerAdmin
   .get("/signup", restaurantController.getSignup)
-  .post("/signup", restaurantController.processSignup);
+  .post(
+    "/signup",
+    makeUploader("members").single("memberImage"),
+    restaurantController.processSignup,
+  );
 routerAdmin.get("/logout", restaurantController.logout);
 routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 
@@ -22,12 +27,14 @@ routerAdmin.get(
   restaurantController.verifyRestaurant,
   productController.getAllProducts,
 );
-routerAdmin.get(
+routerAdmin.post(
   "/product/create",
   restaurantController.verifyRestaurant,
+  // uploadProductImage.single("productImage"),
+  makeUploader("products").array("productImages", 5),
   productController.createNewProduct,
 );
-routerAdmin.get(
+routerAdmin.post(
   "/product/:id",
   restaurantController.verifyRestaurant,
   productController.updatedChosenProduct,
