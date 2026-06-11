@@ -1,6 +1,7 @@
 import express from "express";
 const routerAdmin = express.Router(); // router methodini chaqirb olamz
 import restaurantController from "./controllers/restaurant.controller";
+import productController from "./controllers/product.controller";
 
 // router instance dan foydalanib get post methodini amalga oshramz
 /** Restaurant*/
@@ -16,6 +17,10 @@ routerAdmin.get("/logout", restaurantController.logout);
 routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 
 /** Product */
+routerAdmin.get("/product/all", productController.getAllProducts);
+routerAdmin.get("/product/create", productController.createNewProduct);
+routerAdmin.get("/product/:id", productController.updatedChosenProduct);
+
 /** User */
 
 export default routerAdmin;
