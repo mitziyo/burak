@@ -1,14 +1,24 @@
+# TASK T
 
-def missingNumber(num):
-    num.sort()
-    for i, val in enumerate(num):
-        if i != val:
-            return i
-       
-    return len(num)
+def mergeSortedArrays(ar1, ar2):
+    merge = ar1 + ar2
+    return sorted(merge)
 
-result = missingNumber([0, 1, 2])
+
+result = mergeSortedArrays([0, 3, 4], [4, 6])
 print(result)
+
+#  Task S
+# def missingNumber(num):
+#     num.sort()
+#     for i, val in enumerate(num):
+#         if i != val:
+#             return i
+
+#     return len(num)
+
+# result = missingNumber([0, 1, 2])
+# print(result)
 
 # TASK R
 # def calculate(str):
