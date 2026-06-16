@@ -51,10 +51,9 @@ restaurantController.processSignup = async (
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
 
     const newMember: MemberInput = req.body;
-    newMember.memberImage = file?.path;
+    newMember.memberImage = file?.path.replace(/\\/g, "/");
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
-    // todo SESSIONS AUTHENTICATION
 
     req.session.member = result;
     req.session.save(function () {
@@ -78,7 +77,6 @@ restaurantController.processLogin = async (
     console.log("processLogin");
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
-    // todo SESSIONS AUTHENTICATION
 
     req.session.member = result;
     req.session.save(function () {
