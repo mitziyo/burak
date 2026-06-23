@@ -1,29 +1,45 @@
-#TASK V
+# TASK W
 
-def countChars(text):
-    result = {}
+def chunkArray(arr, size):
+    result = []
 
-    for char in text:
-        if char in result:
-            result[char] += 1
-        else:
-            result[char] = 1
+    for i in range(0, len(arr), size):
+        result.append(arr[i: i + size])
 
     return result
 
 
-result = countChars("hello")
+
+result = chunkArray([1, 2, 3, 4, 5], 2) 
 print(result)
+
+
+# TASK V
+
+# def countChars(text):
+#     result = {}
+
+#     for char in text:
+#         if char in result:
+#             result[char] += 1
+#         else:
+#             result[char] = 1
+
+#     return result
+
+
+# result = countChars("hello")
+# print(result)
 
 # TASK T
 
-#def mergeSortedArrays(ar1, ar2):
+# def mergeSortedArrays(ar1, ar2):
  #   merge = ar1 + ar2
  #   return sorted(merge)
 
 
-#result = mergeSortedArrays([0, 3, 4], [4, 6])
-#print(result)
+# result = mergeSortedArrays([0, 3, 4], [4, 6])
+# print(result)
 
 #  Task S
 # def missingNumber(num):
