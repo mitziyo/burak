@@ -17,7 +17,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     console.log("getAllProducts");
     const data = await productService.getAllProducts();
     console.log("products", data);
-    
+
     res.render("products", { products: data });
   } catch (err) {
     console.log("Error, getAllProducts:", err);
@@ -42,7 +42,7 @@ productController.createNewProduct = async (
     });
     await productService.createNewProduct(data);
     res.send(
-      `<script> alert("Succesdul creation!") window.location.replace('admin/product/all') </script>`,
+      `<script> alert("Succesdul creation!"); window.location.replace('/admin/product/all') </script>`,
     );
   } catch (err) {
     console.log("Error, createNewProduct:", err);
@@ -50,7 +50,7 @@ productController.createNewProduct = async (
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
 
     res.send(
-      `<script> alert("${message}") window.location.replace('admin/product/all') </script>`,
+      `<script> alert("${message}"); window.location.replace('/admin/product/all') </script>`,
     );
   }
 };
