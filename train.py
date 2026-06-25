@@ -1,17 +1,32 @@
+# TASK X
+
+def count_occurences(obj, target_key):
+    count = 0
+
+    for key, value in obj.items():
+        if (key == target_key):
+            count += 1
+        if isinstance(value, dict):
+            count += count_occurences(value, target_key)
+    return count
+
+
+result = count_occurences({"model": "A", "s": {"model": "B"}}, "model")
+print(result)
+
 # TASK W
 
-def chunkArray(arr, size):
-    result = []
+# def chunkArray(arr, size):
+#     result = []
 
-    for i in range(0, len(arr), size):
-        result.append(arr[i: i + size])
+#     for i in range(0, len(arr), size):
+#         result.append(arr[i: i + size])
 
-    return result
+#     return result
 
 
-
-result = chunkArray([1, 2, 3, 4, 5], 2) 
-print(result)
+# result = chunkArray([1, 2, 3, 4, 5], 2)
+# print(result)
 
 
 # TASK V
@@ -34,8 +49,8 @@ print(result)
 # TASK T
 
 # def mergeSortedArrays(ar1, ar2):
- #   merge = ar1 + ar2
- #   return sorted(merge)
+#   merge = ar1 + ar2
+#   return sorted(merge)
 
 
 # result = mergeSortedArrays([0, 3, 4], [4, 6])
