@@ -1,18 +1,31 @@
+# TASK Y
+def findIntersection(A, B):
+    result = []
+
+    for ele in A:
+        if ele in B:
+            result.append(ele)
+    return result
+
+natija = findIntersection([1, 2, 3], [3, 2, 0]) 
+print(natija)
+
+
 # TASK X
 
-def count_occurences(obj, target_key):
-    count = 0
+# def count_occurences(obj, target_key):
+#     count = 0
 
-    for key, value in obj.items():
-        if (key == target_key):
-            count += 1
-        if isinstance(value, dict):
-            count += count_occurences(value, target_key)
-    return count
+#     for key, value in obj.items():
+#         if (key == target_key):
+#             count += 1
+#         if isinstance(value, dict):
+#             count += count_occurences(value, target_key)
+#     return count
 
 
-result = count_occurences({"model": "A", "s": {"model": "B"}}, "model")
-print(result)
+# result = count_occurences({"model": "A", "s": {"model": "B"}}, "model")
+# print(result)
 
 # TASK W
 

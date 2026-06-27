@@ -13,7 +13,7 @@
     "train": "nodemon --exec python3 train.py",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
+  "dependencies": { 
     "bcryptjs": "^2.4.3",
     "connect-mongodb-session": "^3.1.1",
     "dotenv": "^16.0.0",
