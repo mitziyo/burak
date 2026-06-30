@@ -1,14 +1,34 @@
+# TASK Z
+def sum_evens(arr):
+    return sum(num for num in arr if num % 2 == 0)
+
+print(sum_evens([1, 2, 3]))  
+print(sum_evens([5, 8, 12]))  
+
+
+
+
+
+
+
+
+
+
+
+
+
 # TASK Y
-def findIntersection(A, B):
-    result = []
 
-    for ele in A:
-        if ele in B:
-            result.append(ele)
-    return result
+# def findIntersection(A, B):
+#     result = []
 
-natija = findIntersection([1, 2, 3], [3, 2, 0]) 
-print(natija)
+#     for ele in A:
+#         if ele in B:
+#             result.append(ele)
+#     return result
+
+# natija = findIntersection([1, 2, 3], [3, 2, 0]) 
+# print(natija)
 
 
 # TASK X
