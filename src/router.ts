@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router(); // router methodini chaqirb olamz
 import memberController from "./controllers/member.controller";
+import uploader from "./libs/utils/uploader";
 
 // router instance dan foydalanib get post methodini amalga oshramz
 // router.get("/", memberController.goHome);
@@ -22,6 +23,13 @@ router.get(
   "/member/detail",
   memberController.verifyAuth,
   memberController.getMemberDetail,
+);
+
+router.post(
+  "/member/update",
+  memberController.verifyAuth,
+  uploader("members").single("memberImage"),
+  memberController.updateMember,
 );
 
 /***** Product *****/
