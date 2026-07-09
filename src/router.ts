@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router(); // router methodini chaqirb olamz
 import memberController from "./controllers/member.controller";
 import uploader from "./libs/utils/uploader";
+import productController from "./controllers/product.controller";
 
 // router instance dan foydalanib get post methodini amalga oshramz
 // router.get("/", memberController.goHome);
@@ -11,7 +12,7 @@ import uploader from "./libs/utils/uploader";
 // router.get("/signup", memberController.getSignup);
 
 /***** Member *****/
-router.get("/member/restaurant", memberController.getRestaurant)
+router.get("/member/restaurant", memberController.getRestaurant);
 router.post("/member/login", memberController.login);
 router.post("/member/signup", memberController.signup);
 router.post(
@@ -35,6 +36,8 @@ router.post(
 router.get("/member/top-users", memberController.getTopUsers);
 
 /***** Product *****/
+
+router.get("/product/all", productController.getProducts);
 
 /***** Order *****/
 export default router;
