@@ -10,12 +10,17 @@ import {
   ProductUpdateInput,
 } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
+import ViewService from "./View.service";
+import { ViewGroup } from "../libs/enums/view.enum";
+import { ViewInput } from "../libs/types/view";
 
 class ProductService {
   private readonly productModel;
+  public viewService;
 
   constructor() {
     this.productModel = ProductModel;
+    this.viewService = new ViewService();
   }
   /** SPA */
 
@@ -62,10 +67,36 @@ class ProductService {
       .exec();
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-    // todo: if authenticated users => first => view log creation
+
+    if (memberId) {
+      // Check view log Existence
+      const input: ViewInput = {
+        memberId: memberId,
+        viewRefId: productId,
+        viewGroup: ViewGroup.PRODUCT,
+      };
+      const existView = await this.viewService.checkViewExistence(input);
+      console.log("exist:", !!existView);
+
+      // Insert New View Log — faqat avval ko'rilmagan bo'lsa
+      if (!existView) {
+        await this.viewService.insertMemberView(input);
+
+        // Increase Target View — faqat shu yerda
+        result = await this.productModel
+          .findByIdAndUpdate(
+            productId,
+            {
+              $inc: { productViews: +1 },
+            },
+            { new: true },
+          )
+          .exec();
+      }
+    }
+
     return result;
   }
-
   /** SSR */
   public async getAllProducts(): Promise<Product[]> {
     const result = await this.productModel.find().exec();
