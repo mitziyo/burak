@@ -3,6 +3,7 @@ const router = express.Router(); // router methodini chaqirb olamz
 import memberController from "./controllers/member.controller";
 import uploader from "./libs/utils/uploader";
 import productController from "./controllers/product.controller";
+import orderController from "./controllers/order.controller";
 
 // router instance dan foydalanib get post methodini amalga oshramz
 // router.get("/", memberController.goHome);
@@ -45,4 +46,10 @@ router.get(
 );
 
 /***** Order *****/
+router.post(
+  "/order/create",
+  memberController.verifyAuth,
+  orderController.createOrder,
+);
+
 export default router;
