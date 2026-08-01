@@ -1,5 +1,5 @@
 import { ObjectId } from "mongoose";
-import { shapeIntoMongoseObjectId } from "../libs/config";
+import { shapeIntoMongoseObjectId as shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Error";
 import { Member } from "../libs/types/member";
 import {
@@ -28,7 +28,7 @@ class OrderService {
     member: Member,
     input: OrderItemInput[],
   ): Promise<Order> {
-    const memberId = shapeIntoMongoseObjectId(member._id);
+    const memberId = shapeIntoMongooseObjectId(member._id);
     const amount = input.reduce((accumulator: number, item: OrderItemInput) => {
       return accumulator + item.itemPrice * item.itemQuantity;
     }, 0);
@@ -58,7 +58,7 @@ class OrderService {
   ): Promise<void> {
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
-      item.productId = shapeIntoMongoseObjectId(item.productId);
+      item.productId = shapeIntoMongooseObjectId(item.productId);
       await this.orderItemModel.create(item);
       return "INSERTED";
     });
@@ -71,12 +71,12 @@ class OrderService {
     member: Member,
     inquiry: OrderInquiry,
   ): Promise<Order[]> {
-    const memberId = shapeIntoMongoseObjectId(member._id);
+    const memberId = shapeIntoMongooseObjectId(member._id);
     const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
     const result = await this.orderModel
       .aggregate([
         { $match: matches },
-        { $sort: { updateAt: -1 } },
+        { $sort: { updatedAt: -1 } },
         { $skip: (inquiry.page - 1) * inquiry.limit },
         { $limit: inquiry.limit },
         {
@@ -105,8 +105,8 @@ class OrderService {
     member: Member,
     input: OrderUpdateInput,
   ): Promise<Order> {
-    const memberId = shapeIntoMongoseObjectId(member._id),
-      orderId = shapeIntoMongoseObjectId(input.orderId),
+    const memberId = shapeIntoMongooseObjectId(member._id),
+      orderId = shapeIntoMongooseObjectId(input.orderId),
       orderStatus = input.orderStatus;
 
     const result = await this.orderModel
